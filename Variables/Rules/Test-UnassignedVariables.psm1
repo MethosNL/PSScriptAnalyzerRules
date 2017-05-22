@@ -1,7 +1,9 @@
-function Test-UnassignedVariables {
+function Test-UnassignedVariables
+{
     [CmdletBinding()]
     [OutputType([Microsoft.Windows.PowerShell.ScriptAnalyzer.Generic.DiagnosticRecord[]])]
-    param (
+    param
+    (
         [Parameter(
             Mandatory=$true,
             Position=1
@@ -9,7 +11,6 @@ function Test-UnassignedVariables {
         [ValidateNotNullOrEmpty()]
         [System.Management.Automation.Language.ScriptBlockAst]$ScriptBlockAst
     )
-
     process
     {
         [string[]]$AutomaticVariables = (Get-Variable).name
@@ -18,8 +19,8 @@ function Test-UnassignedVariables {
 			$ParametersAst = $ScriptBlockAst.FindAll( { $args[0] -is [System.Management.Automation.Language.ParamBlockAst] }, $true )
             $VariablesAssignmentAst = $ScriptBlockAst.FindAll( { $args[0] -is [System.Management.Automation.Language.AssignmentStatementAst] }, $true )
 
-            $Parameters = $ParametersAST.Parameters | Select-Object @{l='Name';e={$_.Name.VariablePath.UserPath}}, @{l='Line';e={$_.Extent.StartLineNumber}}
-            $Variables = $variablesAssignmentAst | Select-Object @{l='Name';e={$_.Left.ToString().TrimStart('$')}}, @{l='Line';e={$_.Extent.StartLineNumber}}
+            $Parameters = $ParametersAst.Parameters | Select-Object -Property @{l='Name';e={$_.Name.VariablePath.UserPath}}, @{l='Line';e={$_.Extent.StartLineNumber}}
+            $Variables = $variablesAssignmentAst | Select-Object -Property @{l='Name';e={$_.Left.ToString().TrimStart('$')}}, @{l='Line';e={$_.Extent.StartLineNumber}}
 
             $Assigned = New-Object System.Collections.ArrayList
             foreach ($Parameter in $Parameters)
@@ -28,7 +29,7 @@ function Test-UnassignedVariables {
                     'Name' = $Parameter.Name.ToString()
                     'Line' = [int]$Parameter.Line.ToString()
                 }
-                $null = $Assigned.Add( ( New-Object PSObject -Property $Add ) )
+                [void]($Assigned.Add( ( New-Object PSObject -Property $Add ) ))
             }
             foreach ($Variable in $Variables)
             {
@@ -36,12 +37,12 @@ function Test-UnassignedVariables {
                     'Name' = $var.Name.ToString()
                     'Line' = [int]$var.Line.ToString()
                 }
-                $null = $Assigned.Add(( New-Object PSObject -Property $Add ))
+                [void]($Assigned.Add(( New-Object PSObject -Property $Add )))
             }
             $Assigned = $Assigned | Sort-Object -Property Line
 
             $ExpressionsAst = $ScriptBlockAst.FindAll( { $args[0] -is [System.Management.Automation.Language.VariableExpressionAst] }, $true )
-            $Expressions = $ExpressionsAst | Select-Object @{n='Name';e={$_.VariablePath.Userpath}}, @{l='Line';e={$_.Extent.StartLineNumber}}, Extent
+            $Expressions = $ExpressionsAst | Select-Object -Property @{n='Name';e={$_.VariablePath.Userpath}}, @{l='Line';e={$_.Extent.StartLineNumber}}, Extent
 
             foreach ($Expression in $Expressions )
             {
