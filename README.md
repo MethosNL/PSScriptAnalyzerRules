@@ -18,8 +18,7 @@ These are custom rules for the Powershell Script Analyzer.
 ### Parameters
 | Name                      | Description                                                   |
 | ------------------------- | ------------------------------------------------------------- |
-| Measure-MissingParameterDocumentation  |   |
-.psm1
+| UseParameterDocumentation |   |
 
 ### Variables
 | Name                         | Description                                                   |

@@ -1,4 +1,4 @@
-﻿function Measure-MissingParameterDocumentation
+﻿function Measure-ParameterDocumentation
 {
 <#
 .SYNOPSIS
@@ -150,7 +150,7 @@
                     {
                         $Result = [Microsoft.Windows.PowerShell.ScriptAnalyzer.Generic.DiagnosticRecord]@{"Message"  = "Function missing .PARAMETER documentation for parameter '$FunctionParam'"; 
                                                     "Extent"   = $Ast.Extent;
-                                                    "RuleName" = $PSCmdlet.MyInvocation.MyCommand.Name.Replace("Measure-","");
+                                                    "RuleName" = $PSCmdlet.MyInvocation.MyCommand.Name.Replace("Measure-","Use");
                                                     "Severity" = "Warning"}
                         $Results += $Result    
                     }
