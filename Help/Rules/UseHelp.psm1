@@ -1,4 +1,4 @@
-﻿function Test-DescriptionInHelp
+﻿function Measure-Help
 {
     [CmdletBinding()]
     [OutputType([Microsoft.Windows.PowerShell.ScriptAnalyzer.Generic.DiagnosticRecord[]])]
@@ -19,14 +19,14 @@
             foreach ($Function in $Functions)
             {
                 # get help
-                [System.Management.Automation.Language.CommentHelpInfo]$Help = $Function.GetHelpContent()
-                # test for description
-                if ($Help.description -eq $null)
+                $Help = $Function.GetHelpContent()
+                # test for help
+                if ($Help -eq $null)
                 {
                     [Microsoft.Windows.PowerShell.ScriptAnalyzer.Generic.DiagnosticRecord]@{
-                        "Message"  = "Description missing from help"; 
+                        "Message"  = "Help missing in function"; 
                         "Extent"   = $Function.Extent;
-                        "RuleName" = "DescriptionInHelp"
+                        "RuleName" = $PSCmdlet.MyInvocation.MyCommand.Name.Replace("Measure-","Use");
                         "Severity" = "Warning"
                     }
                 }

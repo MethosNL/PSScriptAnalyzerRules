@@ -1,4 +1,4 @@
-﻿function Test-HelpInFunction
+﻿function Measure-HelpExamples
 {
     [CmdletBinding()]
     [OutputType([Microsoft.Windows.PowerShell.ScriptAnalyzer.Generic.DiagnosticRecord[]])]
@@ -19,14 +19,14 @@
             foreach ($Function in $Functions)
             {
                 # get help
-                $Help = $Function.GetHelpContent()
-                # test for help
-                if ($Help -eq $null)
+                [System.Management.Automation.Language.CommentHelpInfo]$Help = $Function.GetHelpContent()
+                # test for examples
+                if ($Help.Examples -eq $null)
                 {
                     [Microsoft.Windows.PowerShell.ScriptAnalyzer.Generic.DiagnosticRecord]@{
-                        "Message"  = "Help missing in function"; 
-                        "Extent"   = $Function.Extent;
-                        "RuleName" = "HelpInFunction"
+                        "Message"  = "Examples missing from help"; 
+                        "Extent"   = $PSCmdlet.MyInvocation.MyCommand.Name.Replace("Measure-","Use");
+                        "RuleName" = "ExamplesInHelp"
                         "Severity" = "Warning"
                     }
                 }

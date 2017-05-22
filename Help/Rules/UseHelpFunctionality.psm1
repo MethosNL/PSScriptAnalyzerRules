@@ -1,4 +1,4 @@
-﻿function Test-ParametersInHelp
+﻿function Measure-HelpFunctionality
 {
     [CmdletBinding()]
     [OutputType([Microsoft.Windows.PowerShell.ScriptAnalyzer.Generic.DiagnosticRecord[]])]
@@ -20,13 +20,13 @@
             {
                 # get help
                 [System.Management.Automation.Language.CommentHelpInfo]$Help = $Function.GetHelpContent()
-                # test for parameters
-                if ($Help.Parameters -eq $null)
+                # test for functionality
+                if ($Help.Functionality -eq $null)
                 {
                     [Microsoft.Windows.PowerShell.ScriptAnalyzer.Generic.DiagnosticRecord]@{
-                        "Message"  = "Parameters missing from help"; 
+                        "Message"  = "Functionality missing from help"; 
                         "Extent"   = $Function.Extent;
-                        "RuleName" = "ParametersInHelp"
+                        "RuleName" = $PSCmdlet.MyInvocation.MyCommand.Name.Replace("Measure-","Use");
                         "Severity" = "Warning"
                     }
                 }

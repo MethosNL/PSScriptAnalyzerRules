@@ -1,4 +1,4 @@
-﻿function Test-DescriptionInHelp
+﻿function Measure-HelpSynopsis
 {
     [CmdletBinding()]
     [OutputType([Microsoft.Windows.PowerShell.ScriptAnalyzer.Generic.DiagnosticRecord[]])]
@@ -20,13 +20,13 @@
             {
                 # get help
                 [System.Management.Automation.Language.CommentHelpInfo]$Help = $Function.GetHelpContent()
-                # test for examples
-                if ($Help.Examples -eq $null)
+                # test for synopsis
+                if ($Help.synopsis -eq $null)
                 {
                     [Microsoft.Windows.PowerShell.ScriptAnalyzer.Generic.DiagnosticRecord]@{
-                        "Message"  = "Examples missing from help"; 
+                        "Message"  = "Synopsis missing from help"; 
                         "Extent"   = $Function.Extent;
-                        "RuleName" = "ExamplesInHelp"
+                        "RuleName" = $PSCmdlet.MyInvocation.MyCommand.Name.Replace("Measure-","Use");
                         "Severity" = "Warning"
                     }
                 }

@@ -1,19 +1,20 @@
 # PSScriptAnalyzerRules
-These are custom rules for the Powershell Script Analyzer.
+Within Methos we use these PSScriptAnalyzer rules for testing our code and verifying consistency and quality in our PowerShell code.
 
 ## Rules
+These are custom rules for the Powershell Script Analyzer.
 
 ### Help
-| Name                      | Description                                                   |
-| ------------------------- | ------------------------------------------------------------- |
-| UseHelpInFunction         |   |
-| UseDescriptionInHelp      |   |
-| UseExamplesInHelp         |   |
-| UseFunctionalityInHelp    |   |
-| UseInputsInHelp           |   |
-| UseOutputsInHelp          |   |
-| UseParametersInHelp       |   |
-| UseSynopsisInHelp         |   |
+| Name                  | Description                                                   |
+| --------------------- | ------------------------------------------------------------- |
+| UseHelp               |   |
+| UseHelpDescription    |   |
+| UseHelpExamples       |   |
+| UseHelpFunctionality  |   |
+| UseHelpInputs         |   |
+| UseHelpOutputs        |   |
+| UseHelpParameters     |   |
+| UseHelpSynopsis       |   |
 
 ### Parameters
 | Name                      | Description                                                   |
@@ -25,8 +26,6 @@ These are custom rules for the Powershell Script Analyzer.
 | ---------------------------- | ------------------------------------------------------------- |
 | Test-AssignedUnusedVariables |   |
 | Test-UnassignedVariables     |   |
-
-
 
 
 

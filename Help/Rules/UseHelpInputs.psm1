@@ -1,4 +1,4 @@
-﻿function Test-InputsInHelp
+﻿function Measure-HelpInputs
 {
     [CmdletBinding()]
     [OutputType([Microsoft.Windows.PowerShell.ScriptAnalyzer.Generic.DiagnosticRecord[]])]
@@ -26,7 +26,7 @@
                     [Microsoft.Windows.PowerShell.ScriptAnalyzer.Generic.DiagnosticRecord]@{
                         "Message"  = "Inputs missing from help"; 
                         "Extent"   = $Function.Extent;
-                        "RuleName" = "InputsInHelp"
+                        "RuleName" = $PSCmdlet.MyInvocation.MyCommand.Name.Replace("Measure-","Use");
                         "Severity" = "Warning"
                     }
                 }
