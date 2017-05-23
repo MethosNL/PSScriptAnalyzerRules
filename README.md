@@ -15,11 +15,13 @@ These are custom rules for the Powershell Script Analyzer.
 | UseHelpInputs             | Tests for an inputs section in the help                       |
 | UseHelpOutputs            | Tests for an outputs section in the help                      |
 | UseHelpParameters         | Tests for a parameter section in the help                     |
+| UseHelpParameters         | Tests for a parameter section in the help                     |
 
 ### Parameters
 | Name                      | Description                                                   |
 | ------------------------- | ------------------------------------------------------------- |
-| UseParameterDocumentation | ** under construction **  |
+| UseParameterHelp          | Tests for parameters without help                             |
+| UseParameterUpdatedHelp   | Tests for obsolete documented parameters in help              |
 
 ### Variables
 | Name                      | Description                                                   |
