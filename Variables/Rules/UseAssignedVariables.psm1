@@ -1,4 +1,4 @@
-﻿function Measure-AssignedUnusedVariables
+﻿function Measure-AssignedVariables
 {
     [CmdletBinding()]
     [OutputType([Microsoft.Windows.PowerShell.ScriptAnalyzer.Generic.DiagnosticRecord[]])]
