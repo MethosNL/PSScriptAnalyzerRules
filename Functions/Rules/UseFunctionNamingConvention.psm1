@@ -17,7 +17,7 @@
             $FunctionsAst = $ScriptBlock.FindAll( { $args[0] -is [System.Management.Automation.Language.FunctionDefinitionAst] }, $true )
             foreach ($FunctionAst in $FunctionsAst)
             {
-                if ($FunctionAst.Name -match '^([a-zA-Z]+)-([A-Z]{1,1})([a-zA-Z0-9])+')
+                if ($FunctionAst.Name -match '^([A-Z])([a-z]+)-([A-Z]{1,1})([a-zA-Z0-9]+)')
                 {}
                 else
                 {
