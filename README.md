@@ -19,7 +19,7 @@ These are custom rules for the Powershell Script Analyzer.
 ### Parameters
 | Name                      | Description                                                   |
 | ------------------------- | ------------------------------------------------------------- |
-| UseParameterDocumentation |   |
+| UseParameterDocumentation | ** under construction **  |
 
 ### Variables
 | Name                      | Description                                                   |

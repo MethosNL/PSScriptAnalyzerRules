@@ -1,19 +1,5 @@
 ﻿function Measure-ParameterDocumentation
 {
-<#
-.SYNOPSIS
-    Finds functions missing parameter documentation for any of their parameters
-.EXAMPLE
-    Measure-MissingParameterDocumentation -ScriptBlockAst $ScriptBlockAst
-.PARAMETER ScriptBlockAst
-    ScriptBlockAst to analyze
-.INPUTS
-    [System.Management.Automation.Language.ScriptBlockAst]
-.OUTPUTS
-    [Microsoft.Windows.PowerShell.ScriptAnalyzer.Generic.DiagnosticRecord[]]
-.NOTES
-    None
-#>
     [CmdletBinding()]
     [OutputType([Microsoft.Windows.PowerShell.ScriptAnalyzer.Generic.DiagnosticRecord[]])]
     Param
