@@ -1,4 +1,4 @@
-﻿function Test-AssignedUnusedVariables
+﻿function Measure-AssignedUnusedVariables
 {
     [CmdletBinding()]
     [OutputType([Microsoft.Windows.PowerShell.ScriptAnalyzer.Generic.DiagnosticRecord[]])]
@@ -24,7 +24,7 @@
                     [Microsoft.Windows.PowerShell.ScriptAnalyzer.Generic.DiagnosticRecord]@{
 					    Message  = "$($Expression.Name) is assigned at line $($Variable.Line) but never used"
 					    Extent   = $Expression.Extent
-					    RuleName = 'PSDoNotAssignUnusedVariables'
+					    RuleName = $PSCmdlet.MyInvocation.MyCommand.Name.Replace("Measure-","Use");
 					    Severity = 'Warning'
 				    }
                     

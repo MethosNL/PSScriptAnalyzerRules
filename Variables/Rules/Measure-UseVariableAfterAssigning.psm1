@@ -1,4 +1,4 @@
-function Test-UnassignedVariables
+function Measure-UseVariableAfterAssigning
 {
     [CmdletBinding()]
     [OutputType([Microsoft.Windows.PowerShell.ScriptAnalyzer.Generic.DiagnosticRecord[]])]
@@ -46,12 +46,12 @@ function Test-UnassignedVariables
 
             foreach ($Expression in $Expressions )
             {
-                if (( $Expression.Name.ToString() -notin $Assigned.Name ) -and ( $Expression.Name.ToString() -notin $AutomaticVariables ))
+                if (($Expression.Name.ToString() -notin $Assigned.Name) -and ($Expression.Name.ToString() -notin $AutomaticVariables))
                 {
                     [Microsoft.Windows.PowerShell.ScriptAnalyzer.Generic.DiagnosticRecord]@{
 					    Message  = "$($Expression.Name) is used before it is assigned a value"
 					    Extent   = $Expression.Extent
-					    RuleName = 'PSDoNotUseUnassignedVariables'
+					    RuleName = $PSCmdlet.MyInvocation.MyCommand.Name.Replace("Measure-","Use");
 					    Severity = 'Warning'
 				    }
                 }
@@ -61,12 +61,12 @@ function Test-UnassignedVariables
                     $AssignsAfter = @($Assigned | Where-Object { ( $_.Name -eq $Expression.Name.ToString() ) -and ( $_.Line -gt $Line ) })
                     $AssignsBefore = @($Assigned | Where-Object { ( $_.Name -eq $Expression.Name.ToString() ) -and ( $_.Line -lt $Line ) })
 
-                    if ( ( -not $AssignsBefore ) -and ( $AssignsAfter ) )
+                    if ((-not $AssignsBefore) -and ($AssignsAfter))
                     {
                         [Microsoft.Windows.PowerShell.ScriptAnalyzer.Generic.DiagnosticRecord]@{
 					        Message  = "$($Expression.Name) is used before it is assigned a value"
 					        Extent   = $Expression.Extent
-					        RuleName = 'PSDoNotUseUnassignedVariables'
+					        RuleName = $PSCmdlet.MyInvocation.MyCommand.Name.Replace("Measure-","Use");
 					        Severity = 'Warning'
 				        }
                     } 
