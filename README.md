@@ -33,7 +33,7 @@ These are custom rules for the Powershell Script Analyzer.
 | Name                        | Description                                                   |
 | --------------------------- | ------------------------------------------------------------- |
 | UseVariableAfterAssigning   | Tests for variables used before assigning them                |
-| AssignedUnusedVariables     | Tests for assigned but unused variables                       |
+| UseAssignedVariables        | Tests for assigned but unused variables                       |
 
 
 
