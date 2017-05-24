@@ -4,6 +4,11 @@ Within Methos we use these PSScriptAnalyzer rules for testing our code and verif
 ## Rules
 These are custom rules for the Powershell Script Analyzer.
 
+### Commands
+| Name                        | Description                                                   |
+| --------------------------- | ------------------------------------------------------------- |
+| UseCommandsNotAliasses      | Tests for aliasses used intead of commands                    |
+
 ### Functions
 | Name                        | Description                                                   |
 | --------------------------- | ------------------------------------------------------------- |
