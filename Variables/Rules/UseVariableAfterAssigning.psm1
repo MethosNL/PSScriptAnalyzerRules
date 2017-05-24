@@ -1,9 +1,9 @@
 function Measure-UseVariableAfterAssigning
 {
     <#
-    .NOTES
-    Created by Thomas Rayner
-    Original from: https://github.com/ThmsRynr/CustomPSSARules
+        .NOTES
+        Created by Thomas Rayner
+        Original from: https://github.com/ThmsRynr/CustomPSSARules
     #>
     [CmdletBinding()]
     [OutputType([Microsoft.Windows.PowerShell.ScriptAnalyzer.Generic.DiagnosticRecord[]])]
