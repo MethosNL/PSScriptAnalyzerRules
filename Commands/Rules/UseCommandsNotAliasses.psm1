@@ -21,7 +21,7 @@
                 if ($Aliasses.Name -contains $Command.Extent.Text)
                 {
                     [Microsoft.Windows.PowerShell.ScriptAnalyzer.Generic.DiagnosticRecord]@{
-                        "Message"  = "Alias $($Command.extent.text) instead of command $($Aliasses | Where-Object {$_.name -eq $Command.extent.text}) is used"; 
+                        "Message"  = "Alias $($Command.extent.text) instead of command $(($Aliasses | Where-Object {$_.name -eq $Command.extent.text}).ResolvedCommand.name) is used"
                         "Extent"   = $Function.Extent;
                         "RuleName" = $PSCmdlet.MyInvocation.MyCommand.Name.Replace("Measure-","Use");
                         "Severity" = "Warning"
