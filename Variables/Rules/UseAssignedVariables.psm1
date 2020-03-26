@@ -27,7 +27,7 @@
 					    RuleName = $PSCmdlet.MyInvocation.MyCommand.Name.Replace("Measure-","Use");
 					    Severity = 'Warning'
 				    }
-                    
+
                 }
             }
         }

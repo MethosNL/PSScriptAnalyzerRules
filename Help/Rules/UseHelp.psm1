@@ -24,7 +24,7 @@
                 if ($Help -eq $null)
                 {
                     [Microsoft.Windows.PowerShell.ScriptAnalyzer.Generic.DiagnosticRecord]@{
-                        "Message"  = "Help missing in function"; 
+                        "Message"  = "Help missing in function";
                         "Extent"   = $Function.Extent;
                         "RuleName" = $PSCmdlet.MyInvocation.MyCommand.Name.Replace("Measure-","Use");
                         "Severity" = "Warning"

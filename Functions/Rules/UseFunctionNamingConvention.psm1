@@ -22,7 +22,7 @@
                 else
                 {
                     [Microsoft.Windows.PowerShell.ScriptAnalyzer.Generic.DiagnosticRecord]@{
-                        "Message"  = "Incorrectly named function based on cmdlet naming conventions"; 
+                        "Message"  = "Incorrectly named function based on cmdlet naming conventions";
                         "Extent"   = $Function.Extent;
                         "RuleName" = $PSCmdlet.MyInvocation.MyCommand.Name.Replace("Measure-","Use");
                         "Severity" = "Warning"

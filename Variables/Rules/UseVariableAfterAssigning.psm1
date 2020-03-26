@@ -1,4 +1,4 @@
-function Measure-UseVariableAfterAssigning
+﻿function Measure-UseVariableAfterAssigning
 {
     <#
         .NOTES
@@ -74,7 +74,7 @@ function Measure-UseVariableAfterAssigning
 					        RuleName = $PSCmdlet.MyInvocation.MyCommand.Name.Replace("Measure-","Use");
 					        Severity = 'Warning'
 				        }
-                    } 
+                    }
                 }
             }
         }

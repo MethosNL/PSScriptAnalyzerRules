@@ -24,7 +24,7 @@
                 if ($Help.description -eq $null)
                 {
                     [Microsoft.Windows.PowerShell.ScriptAnalyzer.Generic.DiagnosticRecord]@{
-                        "Message"  = "Description missing from help"; 
+                        "Message"  = "Description missing from help";
                         "Extent"   = $Function.Extent;
                         "RuleName" = $PSCmdlet.MyInvocation.MyCommand.Name.Replace("Measure-","Use");
                         "Severity" = "Warning"

@@ -22,7 +22,7 @@
                 if ($Verbs -notcontains $MatchedVerb)
                 {
                     [Microsoft.Windows.PowerShell.ScriptAnalyzer.Generic.DiagnosticRecord]@{
-                        "Message"  = "Unapproved verb used in function name"; 
+                        "Message"  = "Unapproved verb used in function name";
                         "Extent"   = $Function.Extent;
                         "RuleName" = $PSCmdlet.MyInvocation.MyCommand.Name.Replace("Measure-","Use");
                         "Severity" = "Warning"

@@ -1,4 +1,4 @@
-function Measure-ParameterHelp
+﻿function Measure-ParameterHelp
 {
     [CmdletBinding()]
     [OutputType([Microsoft.Windows.PowerShell.ScriptAnalyzer.Generic.DiagnosticRecord[]])]
@@ -25,7 +25,7 @@ function Measure-ParameterHelp
                     if ($Parameters -notcontains $HelpParameter)
                     {
                         [Microsoft.Windows.PowerShell.ScriptAnalyzer.Generic.DiagnosticRecord]@{
-                            "Message"  = "Unknown parameter $HelpParameter documented in help"; 
+                            "Message"  = "Unknown parameter $HelpParameter documented in help";
                             "Extent"   = $Function.Extent;
                             "RuleName" = $PSCmdlet.MyInvocation.MyCommand.Name.Replace("Measure-","Use");
                             "Severity" = "Warning"

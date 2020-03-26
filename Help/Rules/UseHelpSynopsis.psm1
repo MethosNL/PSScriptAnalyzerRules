@@ -24,7 +24,7 @@
                 if ($Help.synopsis -eq $null)
                 {
                     [Microsoft.Windows.PowerShell.ScriptAnalyzer.Generic.DiagnosticRecord]@{
-                        "Message"  = "Synopsis missing from help"; 
+                        "Message"  = "Synopsis missing from help";
                         "Extent"   = $Function.Extent;
                         "RuleName" = $PSCmdlet.MyInvocation.MyCommand.Name.Replace("Measure-","Use");
                         "Severity" = "Warning"
